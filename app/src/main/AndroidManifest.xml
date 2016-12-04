@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.saladjack.moemusic">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:name="com.saladjack.moemusic.MoeApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/beats"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.saladjack.moemusic.utils.MoeGlideModule"
+            android:value="GlideModule" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.OauthActivity"
+            android:theme="@style/AppTheme.Immersive" />
+        <activity
+            android:name="com.saladjack.moemusic.ui.WelcomeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.Full">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.saladjack.moemusic.ui.beats.BeatsActivity"
+            android:label="@string/title_activity_beats"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.beats.SearchResultActivity"
+            android:label="@string/search_result_title"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.account.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.saladjack.moemusic.ui.account.RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.music.MoeDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.beats.LocalAlbumDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.music.MusicListActivity"
+            android:label="@string/music_more_title"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.beats.PlayListActivity"
+            android:label="@string/playlist"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.beats.DownloadActivity"
+            android:label="@string/download_manager"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.beats.LocalMusicActivity"
+            android:label="@string/local_library"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.music.SongPlayerActivity"
+            android:label="@string/music_player"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.Immersive" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.collection.RecentPlaylistActivity"
+            android:label="@string/collect_recently_title"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.collection.FavouriteActivity"
+            android:label="@string/collect_album_title"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.collection.CollectionCreateActivity"
+            android:label="@string/collection_edit_title"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.collection.CollectionPlayActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.setting.SettingActivity"
+            android:label="@string/menu_setting"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name="com.saladjack.moemusic.ui.setting.AboutActivity"
+            android:label="@string/menu_about"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name="com.saladjack.moemusic.music.MusicService"
+            android:priority = "1000"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name="android.support.v4.media.session.MediaButtonReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+                <action android:name="android.media.AUDIO_BECOMING_NOISY" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
