@@ -13,9 +13,9 @@ public class MoefouApi extends DefaultApi10a {
     //api参考
     //http://moefou.herokuapp.com/
 
-    private static final String CONSUMERID = "280";
-    public static final String CONSUMERKEY = "d7aa3a9ab98e4bd388f28df27bf57f970576bab43";
-    public static final String CONSUMERSECRET = "fbcf68cb04e4ebee661b733601165437";
+    private static final String CONSUMERID = "309";
+    public static final String CONSUMERKEY = "c40f0c067ac1fbc28d1f6517f9d013df0586c6c83";
+    public static final String CONSUMERSECRET = "4c6c6f72f9d82444a982fd886f9ff32e";
 
     private static final String REQUEST_TOKEN_URL = "http://api.moefou.org/oauth/request_token";//获取request_token
     private static final String AUTHORIZE_URL = "http://api.moefou.org/oauth/authorize";//获取用户授权

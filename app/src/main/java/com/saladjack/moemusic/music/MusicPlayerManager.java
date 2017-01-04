@@ -142,7 +142,8 @@ public class MusicPlayerManager implements OnAudioFocusChangeListener, OnPrepare
     }
 
     /**
-     * play music from item
+     * 从列表中删除一个activity<br/>
+     * remove Activity
      *
      * @param song
      */
@@ -355,7 +356,10 @@ public class MusicPlayerManager implements OnAudioFocusChangeListener, OnPrepare
     private void tryToGetAudioFocus() {
         Log.d(TAG, "tryToGetAudioFocus");
         if (audioFocus != AUDIO_FOCUSED) {
-            int result = audioManager.requestAudioFocus(this, AudioManager.STREAM_MUSIC,
+            int result = audioManager.requestAudioFocus(this,
+                    // Use the music stream
+                    AudioManager.STREAM_MUSIC,
+                    // Request permanent focus
                     AudioManager.AUDIOFOCUS_GAIN);
             if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
                 audioFocus = AUDIO_FOCUSED;

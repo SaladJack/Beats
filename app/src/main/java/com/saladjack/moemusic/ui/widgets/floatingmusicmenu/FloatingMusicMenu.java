@@ -70,7 +70,11 @@ public class FloatingMusicMenu extends ViewGroup {
     }
 
     private void initMenu(Context context, AttributeSet attrs) {
-
+        /**
+         * Container for an array of values that were retrieved with obtainStyledAttributes(AttributeSet, int[], int, int)
+         * or obtainAttributes(AttributeSet, int[]). Be sure to call recycle() when done with them.
+         * The indices used to retrieve values from this structure correspond to the positions of the attributes given to obtainStyledAttributes.
+         */
         TypedArray attr = context.obtainStyledAttributes(attrs, R.styleable.FloatingMusicMenu, 0, 0);
         progressWidthPercent = attr.getInteger(R.styleable.FloatingMusicMenu_fmm_progress_percent, 3);
         progressColor = attr.getColor(R.styleable.FloatingMusicMenu_fmm_progress_color, getResources().getColor(android.R.color.holo_blue_dark));
@@ -149,6 +153,7 @@ public class FloatingMusicMenu extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        // 计算出所有的childView的宽和高
         measureChildren(widthMeasureSpec, heightMeasureSpec);
         int width = 0;
         int height = 0;
@@ -277,7 +282,7 @@ public class FloatingMusicMenu extends ViewGroup {
 
     private static Interpolator expandInterpolator = new OvershootInterpolator();
     private static Interpolator collapseInterpolator = new DecelerateInterpolator(3f);
-    private static Interpolator alphaExpandInterpolator = new DecelerateInterpolator();
+    private static  Interpolator alphaExpandInterpolator = new DecelerateInterpolator();
 
     private class MenuLayoutParams extends LayoutParams {
 

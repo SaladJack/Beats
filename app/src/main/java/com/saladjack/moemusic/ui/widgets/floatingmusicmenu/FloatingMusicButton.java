@@ -66,11 +66,11 @@ public class FloatingMusicButton extends FloatingActionButton {
     }
 
     /**
-     * 对fmb进行配置
+     * 对fab进行配置
      *
      * @param percent        进度条宽度百分比
      * @param color          进度条颜色
-     * @param backgroundHint fmb背景颜色
+     * @param backgroundHint fab背景颜色
      */
     public void config(int percent, int color, ColorStateList backgroundHint) {
         this.percent = percent;

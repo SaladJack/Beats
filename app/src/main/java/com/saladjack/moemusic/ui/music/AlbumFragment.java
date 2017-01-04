@@ -83,7 +83,6 @@ public class AlbumFragment extends BaseFragment implements RefreshRecyclerView.R
 
         refreshView = (RefreshRecyclerView) parentView.findViewById(R.id.refresh_view);
         headerView = inflater.inflate(R.layout.recycler_album_header, container, false);
-
         initRefreshView();
         sliderLayout = (SimpleSliderLayout) headerView.findViewById(R.id.simple_slider);
         circlePageIndicator = (CirclePageIndicator) headerView.findViewById(R.id.circle_indicator);
