@@ -11,10 +11,10 @@ import android.view.View;
 import com.saladjack.core.bean.Song;
 import com.saladjack.core.cache.SongManager;
 import com.saladjack.moemusic.R;
-import com.saladjack.moemusic.permission.OnPermissionsDeniedListener;
-import com.saladjack.moemusic.permission.OnPermissionsGrantedListener;
-import com.saladjack.moemusic.permission.PermissionBuilder;
-import com.saladjack.moemusic.permission.PermissionManager;
+import com.saladjack.core.permission.OnPermissionsDeniedListener;
+import com.saladjack.core.permission.OnPermissionsGrantedListener;
+import com.saladjack.core.permission.PermissionBuilder;
+import com.saladjack.core.permission.PermissionManager;
 
 import java.util.List;
 

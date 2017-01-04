@@ -1,4 +1,4 @@
-package com.saladjack.moemusic.permission;
+package com.saladjack.core.permission;
 
 import android.content.DialogInterface;
 import android.support.annotation.StringRes;

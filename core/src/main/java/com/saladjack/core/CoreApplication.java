@@ -32,7 +32,7 @@ public class CoreApplication extends Application {
         LeakCanary.install(this);
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(getApplicationContext());
-        
+
         instance = this;
         FileDownloader.init(getApplicationContext());
     }

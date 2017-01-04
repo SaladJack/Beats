@@ -1,4 +1,4 @@
-package com.saladjack.moemusic.permission;
+package com.saladjack.core.permission;
 
 import android.Manifest;
 import android.annotation.TargetApi;
