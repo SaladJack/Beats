@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.saladjack.core.utils.CrashHandler;
 import com.liulishuo.filedownloader.FileDownloader;
+import com.squareup.leakcanary.LeakCanary;
 
 
 /**
@@ -27,10 +28,11 @@ public class CoreApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //TODO 解除注释
+        if(LeakCanary.isInAnalyzerProcess(this)) return;
+        LeakCanary.install(this);
         CrashHandler crashHandler = CrashHandler.getInstance();
         crashHandler.init(getApplicationContext());
-        //LeakCanary.install(this); //TODO 内存泄漏开关
+        
         instance = this;
         FileDownloader.init(getApplicationContext());
     }
