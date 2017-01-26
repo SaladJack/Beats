@@ -18,6 +18,7 @@ import static android.media.MediaPlayer.OnCompletionListener;
 import static android.media.MediaPlayer.OnErrorListener;
 import static android.media.MediaPlayer.OnPreparedListener;
 import static android.media.MediaPlayer.OnSeekCompleteListener;
+import static android.media.MediaPlayer.create;
 import static android.support.v4.media.session.PlaybackStateCompat.STATE_FAST_FORWARDING;
 import static android.support.v4.media.session.PlaybackStateCompat.STATE_PAUSED;
 import static android.support.v4.media.session.PlaybackStateCompat.STATE_PLAYING;
@@ -293,7 +294,7 @@ public class MusicPlayerManager implements OnAudioFocusChangeListener, OnPrepare
     public void setPlayMode(int type) {
         if (type < 0 || type > 2)
             throw new IllegalArgumentException("incorrect type");
-        createMediaPlayerIfNeeded();
+        //createMediaPlayerIfNeeded();
         currentPlayType = type;
         if (type == SINGLETYPE)
             mediaPlayer.setLooping(true);
@@ -466,6 +467,11 @@ public class MusicPlayerManager implements OnAudioFocusChangeListener, OnPrepare
             currentProgress = 0;
             playNext();
         }
+
+
+
+
+
     }
 
     @Override
@@ -485,6 +491,7 @@ public class MusicPlayerManager implements OnAudioFocusChangeListener, OnPrepare
         Log.d(TAG, "onSeekComplete from MediaPlayer:" + mp.getCurrentPosition());
         currentProgress = mp.getCurrentPosition();
         if (musicService.getState() == STATE_REWINDING || musicService.getState() == STATE_FAST_FORWARDING) {
+            Log.d(TAG,"start");
             mediaPlayer.start();
             musicService.setState(STATE_PLAYING);
         }

@@ -22,8 +22,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.cleveroad.audiovisualization.DbmHandler;
-import com.cleveroad.audiovisualization.GLAudioVisualizationView;
 import com.saladjack.core.bean.Song;
 import com.saladjack.core.cache.SongDownloadListener;
 import com.saladjack.core.cache.SongManager;
@@ -63,7 +61,6 @@ public class SongPlayerActivity extends PermissionActivity implements OnSongChan
         context.startActivity(intent);
     }
 
-    private GLAudioVisualizationView visualizationView;
     private Toolbar toolbar;
     private CircularSeekBar circularSeekBar;
     private CircleImageView circleCover;
@@ -155,8 +152,7 @@ public class SongPlayerActivity extends PermissionActivity implements OnSongChan
             }
         });
 
-        //背景频谱
-        visualizationView = (GLAudioVisualizationView) findViewById(R.id.visualizer_view);
+
 
         randomImg.setOnClickListener(this);
         previousImg.setOnClickListener(this);
@@ -164,7 +160,7 @@ public class SongPlayerActivity extends PermissionActivity implements OnSongChan
         downloadImg.setOnClickListener(this);
         playBtn.setOnClickListener(this);
     }
-
+/*
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -175,7 +171,6 @@ public class SongPlayerActivity extends PermissionActivity implements OnSongChan
                 new OnPermissionsGrantedListener() {
                     @Override
                     public void onPermissionsGranted(PermissionBuilder builder, List<String> perms) {
-                        visualizationView.linkTo(DbmHandler.Factory.newVisualizerHandler(SongPlayerActivity.this, MusicPlayerManager.get().getMediaPlayer().getAudioSessionId()));
                     }
                 }, new OnPermissionsDeniedListener() {
                     @Override
@@ -189,7 +184,7 @@ public class SongPlayerActivity extends PermissionActivity implements OnSongChan
                     }
                 }, PermissionManager.PERMISSION_RECORD_AUDIO);
     }
-
+*/
     private void updateData() {
         if (!TextUtils.isEmpty(song.getAlbumName())) {
             String title = song.getAlbumName();
@@ -370,20 +365,17 @@ public class SongPlayerActivity extends PermissionActivity implements OnSongChan
     public void onResume() {
         super.onResume();
         isPaused = false;
-        visualizationView.onResume();
         updateData();
     }
 
     @Override
     public void onPause() {
         isPaused = true;
-        visualizationView.onPause();
         super.onPause();
     }
 
     @Override
     public void onDestroy() {
-        visualizationView.release();
         super.onDestroy();
         MusicPlayerManager.get().unregisterListener(this);
         SongManager.getInstance().unRegisterDownloadListener(this);

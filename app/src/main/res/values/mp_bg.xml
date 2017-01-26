@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="mp_colors">
+        <item>@color/mp_color4</item>
+        <item>@color/mp_color3</item>
+        <item>@color/mp_color2</item>
+        <item>@color/mp_color1</item>
+    </array>
+    <!--<color name="mp_color1">#f7b09e</color>-->
+    <!--<color name="mp_color2">#f0979b</color>-->
+    <!--<color name="mp_color3">#e36a97</color>-->
+    <!--<color name="mp_color4">#bc428b</color>-->
+    <!--<color name="mp_color_bg">#8f367c</color>-->
+    <color name="mp_color1">#e2e2e2</color>
+    <color name="mp_color2">#bebebe</color>
+    <color name="mp_color3">#a7a7a7</color>
+    <color name="mp_color4">#8c8c8c</color>
+    <color name="mp_color_bg">#848384</color>
+    <declare-styleable name="GLAudioVisualizationView"><attr format="integer" name="mp_wmpesCount"/><attr format="reference" name="mp_wmpesColors"/><attr format="dimension" name="mp_wmpesHeight"/><attr format="dimension" name="mp_wmpesFooterHeight"/><attr format="dimension" name="mp_bubblesSize"/><attr format="boolean" name="mp_bubblesRandomizeSizes"/><attr format="integer" name="mp_bubblesPerLayer"/><attr format="integer" name="mp_layersCount"/><attr format="color|reference" name="mp_backgroundColor"/></declare-styleable>
+    <string name="mp_app_name">Audio Visualization</string>
+</resources>
