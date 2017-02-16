@@ -65,7 +65,7 @@ public class RotatingProgressDrawable extends Drawable {
         rectF = new RectF();
         progressPaint = new Paint();
         progressPaint.setColor(progressColor);
-        progressPaint.setStyle(Paint.Style.STROKE);
+        progressPaint.setStyle(Paint.Style.STROKE);//描边画笔
         progressPaint.setAntiAlias(true);
     }
 
@@ -86,6 +86,7 @@ public class RotatingProgressDrawable extends Drawable {
         float progressWidth = mWidth * progressPercent / 100f;
         float halfWidth = progressWidth / 2;
         canvas.save();
+        //旋转画布，画进度条，后两个参数为旋转中心点的xy坐标
         canvas.rotate(mRotation, getBounds().centerX(), getBounds().centerY());
         canvas.drawCircle(mWidth / 2, mWidth / 2, mWidth / 2 - progressWidth, mPaint);
         canvas.restore();
@@ -190,6 +191,7 @@ public class RotatingProgressDrawable extends Drawable {
         progressPaint.setStrokeWidth(progressWidth);
     }
 
+    //下面两个方法主要用于在view使用wrapContent的时候使用的
     @Override
     public int getIntrinsicWidth() {
         return mWidth;

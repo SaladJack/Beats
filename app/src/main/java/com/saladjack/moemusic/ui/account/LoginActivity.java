@@ -44,8 +44,7 @@ public class LoginActivity extends AbstractAppActivity implements View.OnClickLi
     private OauthDialog oauthDialog;
     private LoginPresenter loginPresenter;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         loginPresenter = new LoginPresenter(this);
@@ -91,8 +90,7 @@ public class LoginActivity extends AbstractAppActivity implements View.OnClickLi
         }
     }
 
-    @Override
-    public void onClick(View v) {
+    @Override public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login:
                 login();
